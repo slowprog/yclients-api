@@ -1,0 +1,20 @@
+{
+    "name": "slowprog/yclients-api",
+    "description": "Yclients API php wrapper",
+    "minimum-stability": "stable",
+    "license": "Apache License 2.0",
+    "authors": [
+        {
+            "name": "Andrey Tyshev",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yclients\\": "src/Yclients"
+        }
+    }
+}
