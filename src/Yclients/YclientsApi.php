@@ -1154,7 +1154,7 @@ final class YclientsApi
 	 */
 	public function putRecord($companyId, $recordId, $userToken, array $fields)
 	{
-		return $this->request('record/'.$companyId.'/',$recordId, $fields, self::METHOD_PUT, $userToken);
+		return $this->request('record/'.$companyId.'/'.$recordId, $fields, self::METHOD_PUT, $userToken);
 	}
 
 	/**
@@ -1169,7 +1169,7 @@ final class YclientsApi
 	 */
 	public function deleteRecord($companyId, $recordId, $userToken)
 	{
-		return $this->request('record/'.$companyId.'/',$recordId, [], self::METHOD_DELETE, $userToken);
+		return $this->request('record/'.$companyId.'/'.$recordId, [], self::METHOD_DELETE, $userToken);
 	}
 
 	/**
@@ -1185,7 +1185,7 @@ final class YclientsApi
 	 */
 	public function putSchedule($companyId, $staffId, $userToken, $fields)
 	{
-		return $this->request('schedule/'.$companyId.'/',$staffId, $fields, self::METHOD_PUT, $userToken);
+		return $this->request('schedule/'.$companyId.'/'.$staffId, $fields, self::METHOD_PUT, $userToken);
 	}
 
 	/**
@@ -1353,7 +1353,7 @@ final class YclientsApi
 	private function requestCurl($url, $parameters = [], $method = 'GET', $headers = [], $timeout = 30)
 	{
 		$ch = curl_init();
-		
+
 		if (count($parameters)) {
 			if ($method == self::METHOD_GET) {
 				$url .= '?'. http_build_query($parameters);
