@@ -1297,6 +1297,26 @@ final class YclientsApi
 		return $this->request('accounts/'.$companyId, [], self::METHOD_GET, $userToken);
 	}
 
+    /**
+     * Отправить SMS
+     *
+     * @param integer $companyId - ID компании
+     * @param string $userToken - Токен для авторизации пользователя
+     * @param integer[] $clientIds - ID клиентов
+     * @param string $text - Тест сообщения
+     * @return array
+     * @access public
+     * @see http://docs.yclients.apiary.io/#reference/14/0/0
+     */
+    public function sendSMS($companyId, $userToken, $clientIds, $text)
+    {
+        $parameters = array();
+        $parameters['client_ids'] = $clientIds;
+        $parameters['text'] = $text;
+
+        return $this->request('sms/clients/by_id/'.$companyId, $parameters, self::METHOD_POST, $userToken);
+    }
+
 	/**
 	 * Получить склады компании
 	 * 
