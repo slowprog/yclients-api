@@ -1332,6 +1332,42 @@ final class YclientsApi
     }
 
     /**
+     * Получить настройки уведомлений о событиях
+     *
+     * @param integer $companyId - ID компании
+     * @param string $userToken - Токен для авторизации пользователя
+     * @return array
+     * @access public
+     * @see http://docs.yclients.apiary.io/#reference/18/0/0
+     */
+    public function getHooks($companyId, $userToken)
+    {
+        return $this->request('hooks_settings/' . $companyId, [], self::METHOD_GET, $userToken);
+    }
+
+    /**
+     * Изменить настройки уведомлений о событиях
+     *
+     * @param integer $companyId - ID компании
+     * @param array $fields
+     * @param string $userToken - Токен для авторизации пользователя
+     * @return array
+     * @access public
+     * @see http://docs.yclients.apiary.io/#reference/18/0/1
+     * @throw YclientsException
+     */
+    public function postHooks($companyId, array $fields, $userToken)
+    {
+        if (!isset($fields['url'])) {
+            throw new YclientsException('Не передан обязательный параметр url');
+        }
+        if (!isset($fields['active'])) {
+            throw new YclientsException('Не передан обязательный параметр active');
+        }
+        return $this->request('hooks_settings/' . $companyId, $fields, self::METHOD_POST, $userToken);
+    }
+
+    /**
      * Подготовка запроса
      *
      * @param string $url
