@@ -556,7 +556,7 @@ final class YclientsApi
     }
 
     /**
-     * Получить компанию
+     * Изменить компанию
      * 
      * @param integer $id
      * @param array $fields - Остальные необязательные поля для создания компании
