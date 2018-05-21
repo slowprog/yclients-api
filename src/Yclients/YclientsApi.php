@@ -53,6 +53,11 @@ final class YclientsApi
         return $this;
     }
 
+    public function getTokenPartner()
+    {
+        return $this->tokenPartner;
+    }
+
     /**
      * Получаем токен пользователя по логину-паролю
      *
