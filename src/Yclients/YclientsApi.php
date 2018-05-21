@@ -5,7 +5,7 @@ namespace Yclients;
 /**
  * @see http://docs.yclients.apiary.io
  */
-final class YclientsApi
+class YclientsApi
 {
     /*
      * URL для RestAPI
@@ -1434,7 +1434,7 @@ final class YclientsApi
      * @access protected
      * @throws YclientsException
      */
-    private function request($url, $parameters = [], $method = 'GET', $auth = true)
+    protected function request($url, $parameters = [], $method = 'GET', $auth = true)
     {
         $headers = ['Content-Type: application/json'];
 
@@ -1461,7 +1461,7 @@ final class YclientsApi
      * @access protected
      * @throws YclientsException
      */
-    private function requestCurl($url, $parameters = [], $method = 'GET', $headers = [], $timeout = 30)
+    protected function requestCurl($url, $parameters = [], $method = 'GET', $headers = [], $timeout = 30)
     {
         $ch = curl_init();
 
