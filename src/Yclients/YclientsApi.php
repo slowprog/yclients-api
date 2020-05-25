@@ -1399,6 +1399,19 @@ class YclientsApi
     {
         return $this->request('hooks_settings/' . $companyId, [], self::METHOD_GET, $userToken);
     }
+    
+     /**
+     *Получить список категорий клиента
+     * @param $companyId
+     * @param $entity
+     * @param $userToken
+     * @return array
+     * @throws YclientsException
+     */
+    public function getClientCategories($companyId, $entity, $userToken)
+    {
+        return $this->request('labels/' . $companyId . '/' . $entity, [], self::METHOD_GET, $userToken);
+    }
 
     /**
      * Изменить настройки уведомлений о событиях
